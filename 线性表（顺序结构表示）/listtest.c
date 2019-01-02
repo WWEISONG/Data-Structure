@@ -56,7 +56,9 @@ int main(void)
 		printf("a:添加一个元素\n");
 		printf("f:查找某个元素\n");
 		printf("t:遍历\n");
-		printf("q:退出\n");		
+		printf("q:退出\n");
+		while (getchar() != '\n')
+			continue;		
 	}
 	printf("BYE!\n");
 	return 0;
