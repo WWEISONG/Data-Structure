@@ -36,21 +36,21 @@ int main(void)
 		}
 		switch(ch)
 		{
-			case 'd':	printf("请您输入您要删除的元素：\n");
+			case 'd':	 	printf("请您输入您要删除的元素：\n");
 						scanf("%d",&target);
 						DeleteElem(L, target);
 						break;
-			case 'a':	printf("请您输入您要新增的元素以及要插入的位置: \n"); 
+			case 'a':		printf("请您输入您要新增的元素以及要插入的位置: \n"); 
 						scanf("%d %d", &target, &i);
 						InserElem(L, i, target);
 						break;
-			case 'f':	printf("请您输入您要查找的元素：\n");
+			case 'f':		printf("请您输入您要查找的元素：\n");
 						scanf("%d", &target);
 						FindElem(L, target);
 						break;
-			case 't':   Traverselist(L);
-                        break;
-			default :	break;
+			case 't':   		Traverselist(L);
+                        			break;
+			default :		break;
 		}
 		printf("d:删除一i个元素\n");
 		printf("a:添加一个元素\n");
