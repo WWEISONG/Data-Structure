@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include "GraphAL.h"
 
-struct edge           			  // use two vertices to define edge
+struct edge           	// use two vertices to define edge
 {
-	Vertex v;					  // vertex v
-	Vertex w;					  // vertex w
+	Vertex v;			// vertex v
+	Vertex w;		    // vertex w
 };
 
 struct node
