@@ -2,23 +2,23 @@
 #include <stdlib.h>
 #include "GraphAL.h"
 
-struct edge           // use two vertices to define edge
+struct edge           			  // use two vertices to define edge
 {
 	Vertex v;					  // vertex v
 	Vertex w;					  // vertex w
 };
 
 struct node
-{								 					// define linked list for every vertex
-	Vertex v;					 			// current vertex
+{								// define linked list for every vertex
+	Vertex v;					// current vertex
 	struct node *next;			// linked next vertex
 };
 
 typedef struct node *vertexList;
 
 struct graphal
-{								          // define a struct for graph
-	int numberVertex;    		// record the number of vertex
+{						    // define a struct for graph
+	int numberVertex;       // record the number of vertex
 	int numberEdge;         // record the number of edge
 	vertexList *edges;	    // recore all the vertex linked list / edges
 };
@@ -30,7 +30,7 @@ GraphAL newGraph(int numberVertex)
 	if (g == NULL){
 		fprintf(stderr, "newGraph error: no memory\n");
 		exit(1);
-	}else{													  // malloc memory for every linked list / vertex
+	}else{							// malloc memory for every linked list / vertex
 		g->edges = malloc(sizeof(vertexList) * numberVertex);
 		if (g->edges == NULL){
 			fprintf(stderr, "newGraph error: no memory\n");
@@ -40,7 +40,7 @@ GraphAL newGraph(int numberVertex)
 		for (v = 0; v < numberVertex; v++)
 		{
 			g->edges[v] = NULL;// we insert the head of the linked list
-		}								  	 // so when we initialize the linked list this should be null
+		}				       // so when we initialize the linked list this should be null
 		g->numberVertex = numberVertex;
 		g->numberEdge = 0;
 	}
@@ -55,7 +55,7 @@ void showGraph(GraphAL g)
 		for (int v = 0; v < g->numberVertex; v++)
 		{
 			int nshown = 0;
-			vertexList listV = g->edges[v];				// we start at the first nodes
+			vertexList listV = g->edges[v];	// we start at the first nodes
 			while (listV != NULL)
 			{
 				printf("<%d %d> ", v, listV->v);
@@ -78,8 +78,8 @@ Edge newEdge(Vertex v, Vertex w)
 		fprintf(stderr, "newEdge error: no memory\n");
 		exit(1);
 	}else{
-		e->v = v;										 // assign new vertex v
-		e->w = w;										 // assign new vertex w
+		e->v = v;					// assign new vertex v
+		e->w = w;					// assign new vertex w
 	}
 	return e;
 }
@@ -92,18 +92,18 @@ void insertEdge(GraphAL g, Edge e)
 		if (!validV(g, e->v) || !validV(g, e->w)){// we need to check the vertex is valid
 			fprintf(stderr, "insertEdge error: invalid vertices\n");
 		}else{
-			if (isEdge(g, e) == 0){									// malloc memory for 2 vertex nodes
+			if (isEdge(g, e) == 0){				// malloc memory for 2 vertex nodes
 				vertexList n1 = malloc(sizeof(struct node));
 				vertexList n2 = malloc(sizeof(struct node));
-				if (n1 == NULL || n2 == NULL){				// malloc fail, prompt error message
+				if (n1 == NULL || n2 == NULL){ // malloc fail, prompt error message
 					fprintf(stderr, "insertEdge error: no memory\n");
 					exit(1);
 				}
-				n1->v = e->w;						        // now we put w into v's linked list
-				n1->next = g->edges[e->v];			// we put the new join vertex at the head
+				n1->v = e->w;					// now we put w into v's linked list
+				n1->next = g->edges[e->v];		// we put the new join vertex at the head
 				g->edges[e->v] = n1;            // update g->edges[v]
 
-				n2->v = e->v;  							    // now we put v into w's linked list
+				n2->v = e->v;  				    // now we put v into w's linked list
 				n2->next = g->edges[e->w];      // we put the new join vertex at the head
 				g->edges[e->w] = n2;            // update g->edges[w]
 
@@ -115,14 +115,14 @@ void insertEdge(GraphAL g, Edge e)
 
 void removeEdge(GraphAL g, Edge e)
 {
-	if (g == NULL){											// null graph
+	if (g == NULL){							 // null graph
 		fprintf(stderr, "NULL graph\n");
 	}else{
 		if (!validV(g, e->v) || !validV(g, e->w)){
 			fprintf(stderr, "removeEdge error: invalid vertex\n");
 		}else{
 			if (removeV(g, e->w, e->v) == 1){ // we need to check the edge exits or not
-				g->numberEdge--;				  			// if success then decrease the number of edge
+				g->numberEdge--;			  // if success then decrease the number of edge
 				removeV(g, e->v, e->w);
 			}
 		}
@@ -137,16 +137,16 @@ int isEdge(GraphAL g, Edge e)
 		fprintf(stderr, "isEdge error: vertex invalid\n");
 		exit(EXIT_FAILURE);
 	}else{
-		if (g == NULL){														// check the graph is null or not
+		if (g == NULL){							 // check the graph is null or not
 			fprintf(stderr, "isEdge error: NULL graph\n");
 			exit(EXIT_FAILURE);
 		}
 		vertexList listV = g->edges[e->v];// now we check w is in v or not
 		while (listV != NULL)
 		{
-			if (listV->v == e->w){					// we find w in v
-				edgeInGraphOne = 1;						// set edgeInGrapfOne 1
-				break;												// stop loop
+			if (listV->v == e->w){		 // we find w in v
+				edgeInGraphOne = 1;		 // set edgeInGrapfOne 1
+				break;					 // stop loop
 			}
 			listV = listV->next;
 		}
@@ -186,8 +186,8 @@ int removeV(GraphAL g, Vertex v, Vertex w)
 	}else{
 		vertexList listV = g->edges[v], temp = NULL, preNode = NULL;
 		while (listV->v != w && listV != NULL)
-		{												// firstly we need to find w in list v
-			preNode = listV;			// record the previous node of delete node
+		{										// firstly we need to find w in list v
+			preNode = listV;					// record the previous node of delete node
 			listV =  listV->next;
 		}
 		if (listV != NULL && preNode != NULL){ // this means target node is the head
@@ -195,7 +195,7 @@ int removeV(GraphAL g, Vertex v, Vertex w)
 			preNode->next = listV->next;
 			success = 1;
 		}else if(listV != NULL && preNode == NULL){ // this means target node is the head
-			g->edges[v] = listV->next;								// new head
+			g->edges[v] = listV->next;				// new head
 			success = 1;
 		}
 	}
