@@ -17,7 +17,7 @@ struct node
 typedef struct node *vertexList;
 
 struct graphal
-{			        // define a struct for graph
+{			        // define a struct for graph first
 	int numberVertex;       // record the number of vertex
 	int numberEdge;         // record the number of edge
 	vertexList *edges;	// recore all the vertex linked list / edges
