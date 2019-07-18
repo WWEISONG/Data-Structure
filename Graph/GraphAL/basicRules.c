@@ -1,0 +1,1 @@
+// implementation of adjacent linked list
