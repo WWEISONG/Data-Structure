@@ -4,13 +4,8 @@
 
 struct edge           	// use two vertices to define edge
 {
-<<<<<<< HEAD
-	Vertex v;		          // vertex v
-	Vertex w;			  // vertex w
-=======
 	Vertex v;			// vertex v
 	Vertex w;		    // vertex w
->>>>>>> 79e00c97f96cd582b965b6af127cbe93a5a52d1a
 };
 
 struct node
