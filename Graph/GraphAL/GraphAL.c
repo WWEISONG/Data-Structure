@@ -4,8 +4,8 @@
 
 struct edge           	// use two vertices to define edge
 {
-	Vertex v;			// vertex v
-	Vertex w;		    // vertex w
+	Vertex v;	// vertex v
+	Vertex w;	// vertex w
 };
 
 struct node
@@ -201,4 +201,23 @@ int removeV(GraphAL g, Vertex v, Vertex w)
 	}
 
 	return success;
+}
+
+GraphAL freeGraph(GraphAL g)
+{
+	if (g == NULL){
+		fprintf(stderr, "freeGraph error: graph is NULL\n");
+		exit(1);
+	}
+	for (int v = 0; v < g->numberVertex; v++)
+	{
+		vertexList listV = g->edges[v], temp;
+		while(listV != NULL)			// from head to tail
+		{
+			temp = listV;			// current node is not null
+			listV= temp->next;		// set current head link next			
+			free(temp);			// free current head
+		}
+	}
+	return g;
 }

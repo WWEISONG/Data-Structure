@@ -7,7 +7,7 @@ typedef struct edge *Edge;   	       // use a struct to describe edge
 typedef struct graphal *GraphAL;       // use a struct to describe grpah
 
 GraphAL newGraph(int);		       // build a new graph
-void freeGraph(GraphAL);               // free the graph mallocs
+GraphAL freeGraph(GraphAL);            // free the graph mallocs
 void showGraph(GraphAL);               // show the graph
 
 Edge newEdge(Vertex, Vertex);  	       // create a new edge
