@@ -13,6 +13,6 @@ int main(void)
 	insertEdge(g, e2);
 	removeEdge(g, e1);
 	showGraph(g);
-
+	freeGraph(g);
 	return EXIT_SUCCESS;
 }
