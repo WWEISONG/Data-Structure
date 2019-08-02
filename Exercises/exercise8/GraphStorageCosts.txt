@@ -1,0 +1,24 @@
+a.
+for every vertex we need a pointer--> V pointer
+for every element of the matrix we need an integer--> V * V
+==> 8 * V + 4 * (V * V)
+
+b.
+An AL representation requires an array of V pointers (the starts of the lists)
+and then one node for each edge in each list
+The total number of edges is 2 * E
+A node is an integer plus a pointer, which is 4 + 8 = 12 bytes
+This gives 8 * V + 12 * 2 * E
+
+c.
+if 8 * V + 12 * 2 * E < 4 * V * V + 8 * V then the AL version requires less storage
+simplifying, if E < V * V / 6 then AL requires less storage
+
+If you have a largish graph of 100 vertices, then up to about 1666 edges (which is a lot)
+it is better to use AL if the storage is the main issue
+As V gets very large, the factor 6 becomes insignificant
+Hence asymptotically if the number of edges is less than V * V, then AL  is more space
+efficient than AM
+
+d.
+use 1 byte: 8 * V + 1 * (V * V) -> E < V * V / 24

@@ -1,0 +1,10 @@
+left		   0  1  2  3  4  5  6  7  8	// # of vertex
+	visited = {0, 1, 2, 5, 4, 3, 6, 7, 8}	// visited order
+right		   0  1  2  3  4  5  6  7  8	// # of vertex 
+	visited = {0, 1, 2, 5, 4, 3, 6, 7, 8}	// visited order
+
+No, the visited array cannot indicate a path since between two
+adjacent visited order vertices, they may not connect with each
+other, like the above 7--8
+
+Conclusion: a visited array does not show the path

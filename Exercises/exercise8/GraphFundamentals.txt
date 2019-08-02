@@ -1,0 +1,15 @@
+a. path
+	smallest: any path with one edge(eg. a-b, g-m)
+	largest: some path including all nodes (eg. m-g-h-k-i-j-a-b-c-d-e-f)
+b. cycle
+	smallest: i-j-k-j
+	largest: g-h-k-i-j-a-b-c-d-e-f-g
+c. spanning tree(including all the vertices of graph)
+	smallest: m-g-h-k-i-j-a-b-c-d-e-f
+	largest: m-g-h-k-i-j-a-b-c-d-e-f
+d. vertex degree
+	smallest: 1
+	largest: 5 f b
+e. clique(subset of all vertices of graph form a complete graph)
+	smallest: one node!
+	largest: b,c,d,e,f 5

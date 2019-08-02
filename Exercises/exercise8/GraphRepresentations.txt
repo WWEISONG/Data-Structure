@@ -1,0 +1,1 @@
+two types of graph: Adjacency Matrix / Adjacency Linked list
