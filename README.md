@@ -2,8 +2,8 @@
 Totally speaking, this repository inlcudes the basic implementation of some data sturcture and some exercises as well as assignments
 
 Some basic data structure:
-  Queue
-  Stack
+  Queue\n
+  Stack\n
   Priority Queue
   Heap
   Graph
